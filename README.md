@@ -1,6 +1,6 @@
 # Capstone-3
 Files for Final Capstone project for AI ML course
-Capstone Project Summary: Predicting Academic Achievement Using Cognitive and Social-Emotional Data
+Predicting Academic Achievement Using Cognitive and Social-Emotional Data
 
 Author:
 Evelyn Johnson
@@ -11,7 +11,7 @@ This project investigates the predictive relationship between students’ cognit
 Problem Statement
 Many school districts rely only on a student's academic achievement data to make important instructional decisions. This project explores whether the inclusion of social-emotional and cognitive reasoning data provide a more complete and predictive model of student achievement. The goal is to assess and compare the effectiveness of various machine learning models in predicting academic performance based on these whole-child indicators. 
 
-Data Overview
+Data Acquisition - data for this project came from several school districts across one state. Future analyses could be conducted for other states that collect similar data to better inform instructional decision making for their students. 
 Sample Size: ~2,300 students
 Features:
   CogAT subtests: Verbal, Quantitative, Nonverbal
@@ -19,17 +19,17 @@ Features:
   State assessment scores (Reading and Math)
 Demographic variables: gender, race, EL status, SPED status, Gifted
 
-Data was cleaned, missing values handled, and encoded appropriately. The dataset was split into 80% training and 20% testing subsets. Standard preprocessing techniques were applied including normalization and encoding of categorical variables.
+Data preprocessing and preparation: Data was cleaned, missing values handled, and encoded appropriately. The dataset was split into 80% training and 20% testing subsets. Standard preprocessing techniques were applied including normalization and encoding of categorical variables.
 
-Methods and Modeling
-The dataset included student-level data from approximately 2,300 students, including CogAT subtest scores, DESSA scale scores, and state assessment results in reading and math. Student demographics (e.g., gender, EL, SPED, Gifted, and race) were also included.
+Modeling, Outcomes and Evaluation: 
+This project utilized supervised machine learning techniques to address a regression problem. The primary objective was to predict students' performance on standardized reading and math state assessments, which are continuous numerical outcomes. Therefore, regression models were the appropriate choice, as the target variables (test scores) are continuous rather than categorical.
+Three types of regression models were implemented:
+  1. Multiple Linear Regression to establish baseline predictive performance using cognitive and social-emotional variables.
+  2. Regularized Regression Models (LASSO and Ridge) to address potential multicollinearity and enhance generalization.
+  3. Random Forest Regressor as a non-linear, ensemble-based approach to compare against linear models.
+The expected outputs from these models are numerical test score predictions for both reading and math subjects. These outputs were compared against actual student scores to assess model accuracy and interpretability. Evaluation metrics included Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score, enabling a clear comparison of predictive performance across different modeling techniques.
+This approach supports the goal of identifying students who may need targeted academic or social-emotional interventions based on predicted underperformance relative to their cognitive profiles.
 
-I trained and evaluated several supervised learning models:
-- Multiple Linear Regression
-- LASSO and Ridge Regression
-- Random Forest Regressor
-
-Model performance was evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² Score. All models were trained on 80% of the dataset and tested on the remaining 20%. Grid Search was used for hyperparameter tuning.
 
 Key Findings
 - Linear regression outperformed Random Forest in both reading and math prediction tasks, suggesting that relationships among predictors and outcomes are largely linear.
@@ -47,12 +47,12 @@ All visualizations were created using matplotlib, seaborn, and plotly. They incl
   All visual elements are labeled with titles, axes, and legends
 
 Summary of Results
-Best model: Ridge regression with tuned hyperparameters
+Best model: LASSO regression for both reading and math.
 Top predictors: CogAT subtests and DESSA scores
 R² scores: ~0.60 for Reading, ~0.63 for Math
 Actionable Insight: Integrating SEL data can improve how schools identify students needing support and tailor interventions more effectively.
 
-Implications and recommendations
+Next steps and recommendations
 This analysis supports the value of including whole-child data—cognitive and social-emotional measures—when identifying students for intervention. Machine learning can enhance this process by uncovering nuanced patterns and providing interpretable insights (e.g., via feature importance and residual analysis) that inform practice.
 Next steps include:
 1. Broaden use of whole-child assessments in early academic intervention strategies.
